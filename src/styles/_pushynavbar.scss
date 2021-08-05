@@ -1,0 +1,908 @@
+$breakPoint: 1024 !default; // Set the breakpoint to transition from Desktop to Mobile views.
+$menuPosition: left !default; // Position links to the "left" or "right" in desktop mode.
+$rootClassName: "default" !default; // Used to scope CSS to the navbar instance. Useful when you have multiple menus on the same page with different styles. The rootClassName should match the value of the "rootClassName" prop passed into the instance of the PushyNavBar you want to style.
+$primaryColor: #333333 !default; // Sets various colors used for default styling for links, mobile background color, etc.
+$secondaryColor: lighten(
+  $primaryColor,
+  10
+) !default; // Sets the default hover and hover background colors in the desktop view.
+$primaryInverseColor: #fff; // Sets the default colors for active links in the desktop view, links in the mobile view and other
+$navbarHeight: 80px !default; // Navbar height in the desktop view.
+
+$baseBackgroundColor: $primaryInverseColor !default;
+$baseBorderColor: #ccc !default; // Color of the bottom border of the navbar.
+$baseBorderStyle: solid !default; // Border style of the bottom border of the navbar.
+$baseBorderWidth: 2px !default; // Width of the bottom border of the navbar.
+$baseFontColor: $primaryColor !default; // Base font color of the navbar. This color is inherited by the desktop view by default
+$baseFontFamily: verdana, arial, sans-serif !default;
+$baseFontSize: 14px !default;
+$baseFontWeight: 600 !default;
+$baseTitleColor: $primaryColor !default;
+$baseTitleHoverColor: $secondaryColor !default;
+$baseTitleFontFamily: $baseFontFamily !default;
+$baseTitleFontSize: 18px !default;
+$baseTitleFontWeight: 600 !default;
+
+/* *****************************************************************************************
+* Navbar Desktop styles 
+***************************************************************************************** */
+$desktopBackgroundColor: $baseBackgroundColor !default; // Background color of the navbar in the desktop view.
+$desktopBorderColor: $baseBorderColor !default; // Color of the bottom border that displays in the desktop view.
+$desktopBorderStyle: $baseBorderStyle !default; // Border style of the bottom border that displays in the desktop view.
+$desktopBorderWidth: $baseBorderWidth !default; // Width of the bottom border that displays in the desktop view.
+$desktopFontColor: $baseFontColor !default; // Default font color for the navbar in the desktop view.
+$desktopFontFamily: $baseFontFamily !default; // Default font family for the navbar in the desktop view.
+$desktopFontSize: $baseFontSize !default;
+$desktopFontWeight: $baseFontWeight !default; // Default font weight for the navbar in the desktop view.
+$desktopTitleColor: $desktopFontColor !default; // Default font color for the title in the desktop view.
+$desktopTitleHoverColor: $secondaryColor !default; // Default font color for the title in the desktop view.
+$desktopTitleFontFamily: $desktopFontFamily !default; // Default font family for the title in the desktop view.
+$desktopTitleFontSize: $baseTitleFontSize !default;
+$desktopTitleFontWeight: $desktopFontWeight !default; // Default font weight for the title in the desktop view.
+$desktopLinkColor: $primaryColor !default; // Link color for the navigation links in the desktop view.
+$desktopLinkActiveBackgroundColor: $primaryColor !default; // Active link  (current page) background color for the navigation links in the desktop view.
+$desktopLinkActiveColor: $primaryInverseColor !default; // Active link  (current page) text color for the navigation links in the desktop view.
+$desktopLinkHoverBackgroundColor: $secondaryColor !default; // Hover background color for the navigation links in the desktop view.
+$desktopLinkHoverColor: $primaryInverseColor !default; // Hover link text color for the navigation links in the desktop view.
+$desktopLinkLineHeight: 2em !default; // Sets the line height for links in the desktop view.
+$desktopLinkMargin: 0 3px !default; // Sets the margin for the navigation links in the desktop view.
+$desktopLinkPadding: 10px 10px !default; // Sets the padding for the navigation links in the desktop view.
+$desktopSubLinkBackgroundColor: $primaryInverseColor !default; // Sets the primary background color of the drop down menu items.
+$desktopSubLinkColor: $primaryColor !default; //Sets the primary color of the links of the drop down menu items.
+$desktopSubLinkHoverBackgroundColor: lighten(
+  $primaryColor,
+  5
+) !default; // Sets the background color of the drop down menu items on hover.
+$desktopSubLinkHoverColor: $primaryInverseColor !default; // Sets the text color of the links of drop down menu items on hover.
+$desktopSubLinkActiveBackgroundColor: $primaryColor !default; // Sets the background color of the active link (current page) within the drop down menu.
+$desktopSubLinkActiveColor: $primaryInverseColor !default; // Sets the text color of the active link (current page) within the drop down menu.
+
+/* *****************************************************************************************
+* Mobile push menu styles 
+***************************************************************************************** */
+$mobileBackgroundColor: $primaryColor !default; // Background color of the navbar in the mobile view.
+$mobileBorderColor: $baseBorderColor !default;
+$mobileBorderStyle: $baseBorderStyle !default;
+$mobileBorderWidth: $baseBorderWidth !default;
+$mobileLinkHoverBackgroundColor: lighten(
+  $mobileBackgroundColor,
+  10
+) !default; // Hover background color of the navbar links in the mobile view.
+
+$mobileLinkColor: $primaryInverseColor !default; // Navbar link color in the mobile view.
+$mobileLinkActiveBackgroundColor: lighten(
+  $mobileBackgroundColor,
+  5
+) !default; // Hover background color for the navigation links in the mobile view.
+$mobileLinkActiveColor: $primaryInverseColor !default; // Active link (current page) text color for the navigation links in the mobile view.
+$mobileLinkActiveHoverColor: $primaryInverseColor !default;
+$mobileLinkActiveHoverBackgroundColor: $mobileLinkHoverBackgroundColor !default;
+$mobileLinkLineHeight: 2em !default;
+$mobileLinkMargin: 0 !default;
+$mobileLinkPadding: 1em !default;
+$mobileFontFamily: $baseFontFamily !default; // Default font family for the navbar in the mobile view.
+$mobileFontSize: $baseFontSize !default;
+$mobileFontWeight: $baseFontWeight !default; // Default font weight for the navbar in the mobile view.
+
+$mobileTitleColor: $primaryColor !default; // Default font color for the title in the mobile view.
+$mobileTitleHoverColor: lighten(
+  $mobileTitleColor,
+  10
+) !default; // Default font color for the title in the mobile view.
+$mobileTitleFontFamily: $mobileFontFamily !default; // Default font family for the title in the mobile view.
+$mobileTitleFontSize: $baseTitleFontSize !default;
+$mobileTitleFontWeight: $mobileFontWeight !default; // Default font weight for the title in the mobile view.
+$mobileSubLinkBackgroundColor: lighten(
+  $mobileBackgroundColor,
+  15
+) !default; // Primary background color of nested sub-links in the mobile view.                                                     |
+$mobileSubLinkColor: $primaryInverseColor !default; //  Primary text color of nested sub-links in the mobile view.
+$mobileSubLinkHoverBackgroundColor: lighten(
+  $mobileSubLinkBackgroundColor,
+  20
+) !default; // Background color of the nested sub-links on hover in the mobile view.
+$mobileSubLinkHoverColor: $primaryInverseColor !default; // Text color of the nested sub-links on hover in the mobile view.
+$mobileLinkBorderColor: lighten(
+  $mobileBackgroundColor,
+  20
+) !default; // Border color of navbar links used as a divider in the mobile view.
+$mobileMenuWidth: 300px !default; // Sets the mobile menu width in the mobile view.
+
+/* *****************************************************************************************
+* Mobile menu toggle button
+***************************************************************************************** */
+
+$toggleLineColor: $primaryColor !default; // Default color of the hamburger menu lines.
+$toggleHoverColor: $primaryColor !default; // Color of the hamburger menu lines on hover.
+$toggleOpenBackgroundColor: $toggleLineColor !default; // Background color of the hamburger menu when the menu is open and the modal cover is behind it.
+$toggleOpenLineColor: $primaryInverseColor !default; // Line color of the hamburger menu when the menu is open and the modal cover is behind it.
+$toggleOpenHoverLineColor: darken(
+  $toggleOpenLineColor,
+  20
+) !default; // Color of the hamburger menu lines on hover.
+$closeFocusBorderColor: #aaa !default; // Sets the color of the border on the hamburger menu when the button is focused
+
+/* *****************************************************************************************
+* Menu transition properties and modal cover styles 
+***************************************************************************************** */
+$mobileTransitionDelay: 0s !default; // Sets a delay before the menu begins its transition
+$mobileTransitionDuration: 0.7s !default; // Sets the duration of time to open or close the push menu in the mobile view.
+$mobileTransitionProperty: all !default; // Applies the transition time to all CSS property changes.
+$mobileTransitionTimingFunction: ease !default; // Sets the acceleration curve of the menu opening and closing transition.
+$coverColor: #000 !default; // Color of the veil overlay covering the remainder of the page from being clicked.
+$coverOpacity: 0.7 !default; // Opacity of the veil overlay
+
+body {
+  --viewport-width: 100%;
+}
+@mixin hide {
+  /* Hide where items are still accessible to screen reader */
+  left: -99999px;
+  position: absolute;
+  top: -99999px;
+}
+
+@mixin _branding {
+  @if mixin-exists(branding) {
+    @include branding;
+  } @else {
+    .title {
+      align-items: center;
+      display: flex;
+      margin: 0 0 0 1em;
+    }
+    img {
+      height: auto;
+      max-height: $navbarHeight;
+      max-width: 100%;
+    }
+  }
+}
+@mixin _features {
+  @if mixin-exists(features) {
+    @include features;
+  }
+}
+
+/* End of variables and mixins *
+
+/
+/* *****************************************************************************************
+* Core navbar implementation code
+***************************************************************************************** */
+
+/* Styles used in both Mobile and Desktop views */
+.pushy-navbar.#{$rootClassName} {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  background-color: $baseBackgroundColor;
+  border-bottom-color: $baseBorderColor;
+  border-bottom-style: $baseBorderStyle;
+  border-bottom-width: $baseBorderWidth;
+  color: $baseFontColor;
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  font-weight: $baseFontWeight;
+  height: $navbarHeight;
+  * {
+    box-sizing: border-box;
+  }
+  a,
+  button {
+    color: $baseFontColor;
+    font-family: $baseFontFamily;
+    font-size: $baseFontSize;
+    font-weight: $baseFontWeight;
+  }
+
+  .hide {
+    @include hide;
+  }
+  .branding {
+    @include _branding;
+  }
+  .pushy-main-grid {
+    height: $navbarHeight;
+  }
+  .branding {
+    a {
+      color: $baseTitleColor;
+      text-decoration: none;
+    }
+    a:hover {
+      background: none;
+      color: $baseTitleHoverColor;
+    }
+    .title {
+      color: $baseTitleColor;
+      font-family: $baseTitleFontFamily;
+      font-size: $baseTitleFontSize;
+      font-weight: $baseTitleFontWeight;
+    }
+    @if mixin-exists(_branding) {
+      @include _branding;
+    }
+  }
+  @if mixin-exists(_features) {
+    @include _features;
+  }
+  .push-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .push-menu ul li {
+    a,
+    button {
+      color: $desktopFontColor;
+      font-weight: $desktopFontWeight;
+      text-decoration: none;
+    }
+  }
+  .push-menu ul li {
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .push-menu ul li ul {
+    @include hide;
+  }
+
+  @if mixin-exists(base) {
+    @include base;
+  }
+}
+
+/* Define Mobile Menu Styles */
+@media (max-width: $breakPoint+"px") {
+  .pushy-navbar.#{$rootClassName} {
+    border-bottom-color: $mobileBorderColor;
+    border-bottom-style: $mobileBorderStyle;
+    border-bottom-width: $mobileBorderWidth;
+    .pushy-navbar-toggle {
+      align-items: center;
+      background: none;
+      border: 2px solid transparent;
+      cursor: pointer;
+      display: flex;
+      font: inherit;
+      line-height: normal;
+      overflow: visible;
+      padding: 0 0.25em;
+      position: absolute;
+      top: 10px;
+      & * {
+        cursor: pointer;
+      }
+      &.left {
+        left: 10px;
+      }
+      &.right {
+        right: 10px;
+      }
+      &:focus {
+        border: 2px solid $closeFocusBorderColor;
+        border-radius: 4px;
+      }
+      &:hover span {
+        background-color: $toggleHoverColor;
+        border-radius: 8px;
+      }
+
+      span {
+        width: 35px;
+        height: 5px;
+        background-color: $toggleLineColor;
+        margin: 6px 0;
+        display: block;
+        border-radius: 4px;
+      }
+
+      label {
+        color: $toggleLineColor;
+        margin: 0;
+        padding: 0;
+      }
+      label.has-label {
+        padding: 0.2em;
+      }
+      &:hover label {
+        color: $toggleHoverColor;
+      }
+      @if mixin-exists(toggleButton) {
+        @include toggleButton;
+      }
+    }
+
+    .push-menu {
+      margin: 0;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 2;
+
+      nav {
+        background: $mobileBackgroundColor;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        width: $mobileMenuWidth;
+
+        ul {
+          li {
+            background-color: $mobileBackgroundColor;
+            border: 1px solid transparent;
+            border-top: 1px solid $mobileLinkBorderColor;
+            display: block;
+            line-height: 2em;
+            min-height: 2em;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+
+            a,
+            button {
+              color: $mobileLinkColor;
+              display: block;
+              font-family: $mobileFontFamily;
+              font-size: $mobileFontSize;
+              font-weight: $mobileFontWeight;
+              line-height: $mobileLinkLineHeight;
+              min-height: $mobileLinkLineHeight;
+              margin: $mobileLinkMargin;
+              padding: $mobileLinkPadding;
+              text-align: left;
+              &.active {
+                background-color: $mobileLinkActiveBackgroundColor;
+                color: $mobileLinkActiveColor;
+                &:hover {
+                  background-color: $mobileLinkActiveHoverBackgroundColor;
+                  color: $mobileLinkActiveHoverColor;
+                }
+              }
+              &:focus,
+              &:hover {
+                background-color: $mobileLinkHoverBackgroundColor;
+              }
+            }
+            a {
+              width: auto;
+            }
+            button {
+              width: 100%;
+            }
+
+            &.has-children {
+              a,
+              button {
+                span.child-indicator {
+                  color: $mobileLinkColor;
+                  cursor: pointer;
+                  height: 25px;
+                  position: absolute;
+                  right: 10px;
+                  width: 25px;
+                  &:before,
+                  &:after {
+                    background: $mobileLinkColor;
+                    border: 1px solid;
+                    border-radius: 3px;
+                    content: "";
+                    height: 5px;
+                    left: 0;
+                    position: absolute;
+                    top: 10px;
+                    transition: transform 0 ease;
+                    width: 25px;
+                  }
+                  &:after {
+                    transform-origin: center;
+                  }
+
+                  &:after {
+                    transform: rotate(90deg);
+                  }
+                  &:before {
+                    transform: rotate(180deg);
+                  }
+                }
+                &.active {
+                  span.child-indicator {
+                    color: $mobileLinkActiveColor;
+                    &:before,
+                    &:after {
+                      background-color: $mobileLinkActiveColor;
+                    }
+                  }
+                }
+              }
+            }
+            &.has-children.expanded {
+              a,
+              button {
+                span.child-indicator {
+                  color: $mobileSubLinkColor;
+                }
+
+                span.child-indicator:after {
+                  background-color: $mobileSubLinkColor;
+                  transform: rotate(0);
+                }
+              }
+            }
+            /* Style submenu items */
+            &.expanded ul.submenu {
+              /* reset hide of submenu*/
+              left: auto;
+              top: auto;
+              position: relative;
+
+              li {
+                display: block;
+                line-height: 2em;
+                min-height: 2em;
+                a,
+                button {
+                  background-color: $mobileSubLinkBackgroundColor;
+                  display: block;
+                  height: auto;
+                  &:hover {
+                    background-color: $mobileSubLinkHoverBackgroundColor;
+                    color: $mobileSubLinkHoverColor;
+                  }
+
+                  &.active {
+                    background-color: $mobileLinkActiveBackgroundColor;
+                    color: $mobileLinkActiveColor;
+                    &:hover {
+                      background-color: $mobileLinkActiveHoverBackgroundColor;
+                      color: $mobileLinkActiveHoverColor;
+                    }
+                  }
+                }
+                a {
+                  width: auto;
+                }
+                button {
+                  width: 100%;
+                }
+              }
+              @if mixin-exists(mobileSubMenu) {
+                @include mobileSubMenu;
+              }
+            }
+          }
+        }
+        @if mixin-exists(mobileMenu) {
+          @include mobileMenu;
+        }
+      }
+    }
+
+    .close-container {
+      background-color: $mobileBackgroundColor;
+      display: block;
+      line-height: 2em;
+      min-height: 2em;
+      margin: 0 0 2em 0;
+      padding: 0;
+      width: $mobileMenuWidth;
+    }
+
+    .close {
+      background: none;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      height: 32px;
+      line-height: normal;
+      margin-top: 8px;
+      opacity: 0.8;
+      overflow: visible;
+      padding: 16px;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 32px;
+    }
+
+    .close:focus {
+      border: 2px solid $closeFocusBorderColor;
+      opacity: 1;
+    }
+
+    .close:hover {
+      opacity: 1;
+    }
+
+    .close:before,
+    .close:after {
+      border-radius: 4px;
+      position: absolute;
+      left: 12px;
+      top: 0;
+      content: " ";
+      height: 33px;
+      width: 8px;
+      background-color: $mobileLinkColor;
+    }
+
+    .close:before {
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    .close:after {
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+
+    &.open {
+      z-index: 2;
+      .pushy-navbar-toggle {
+        background-color: $toggleOpenBackgroundColor;
+      }
+
+      .pushy-navbar-toggle span {
+        background-color: $toggleOpenLineColor;
+      }
+      .pushy-navbar-toggle label {
+        color: $toggleOpenLineColor;
+      }
+
+      .cover {
+        background-color: $coverColor;
+        opacity: $coverOpacity;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        z-index: 1;
+        -webkit-transition-property: left;
+        -o-transition-property: left;
+        transition-property: left;
+        -webkit-transition-delay: $mobileTransitionDelay;
+        -o-transition-delay: $mobileTransitionDelay;
+        transition-delay: $mobileTransitionDelay;
+        -webkit-transition-duration: $mobileTransitionDuration;
+        -o-transition-duration: $mobileTransitionDuration;
+        transition-duration: $mobileTransitionDuration;
+        -webkit-transition-property: $mobileTransitionProperty;
+        -o-transition-property: $mobileTransitionProperty;
+        transition-property: $mobileTransitionProperty;
+        -webkit-transition-timing-function: $mobileTransitionTimingFunction;
+        -o-transition-timing-function: $mobileTransitionTimingFunction;
+        transition-timing-function: $mobileTransitionTimingFunction;
+      }
+
+      nav {
+        display: block;
+      }
+      nav,
+      .close-container {
+        left: 0;
+        -webkit-transition-property: left;
+        -o-transition-property: left;
+        transition-property: left;
+        -webkit-transition-delay: $mobileTransitionDelay;
+        -o-transition-delay: $mobileTransitionDelay;
+        transition-delay: $mobileTransitionDelay;
+        -webkit-transition-duration: $mobileTransitionDuration;
+        -o-transition-duration: $mobileTransitionDuration;
+        transition-duration: $mobileTransitionDuration;
+        -webkit-transition-property: $mobileTransitionProperty;
+        -o-transition-property: $mobileTransitionProperty;
+        transition-property: $mobileTransitionProperty;
+        -webkit-transition-timing-function: $mobileTransitionTimingFunction;
+        -o-transition-timing-function: $mobileTransitionTimingFunction;
+        transition-timing-function: $mobileTransitionTimingFunction;
+      }
+
+      nav {
+        display: block;
+      }
+    }
+    .branding {
+      display: flex;
+      .title a {
+        font-size: $mobileTitleFontSize;
+        font-weight: $mobileTitleFontWeight;
+        color: $mobileTitleColor;
+        &:hover {
+          color: $mobileTitleHoverColor;
+        }
+      }
+      @if mixin-exists(mobileBranding) {
+        @include mobileBranding;
+      }
+    }
+    .features {
+      @if mixin-exists(mobileFeatures) {
+        @include mobileFeatures;
+      }
+    }
+  }
+
+  .pushy-navbar.left.#{$rootClassName} {
+    .push-menu {
+      nav {
+        left: -$mobileMenuWidth;
+        -webkit-transition-property: left;
+        -o-transition-property: left;
+        transition-property: left;
+        -webkit-transition-delay: $mobileTransitionDelay;
+        -o-transition-delay: $mobileTransitionDelay;
+        transition-delay: $mobileTransitionDelay;
+        -webkit-transition-duration: $mobileTransitionDuration;
+        -o-transition-duration: $mobileTransitionDuration;
+        transition-duration: $mobileTransitionDuration;
+        -webkit-transition-property: $mobileTransitionProperty;
+        -o-transition-property: $mobileTransitionProperty;
+        transition-property: $mobileTransitionProperty;
+        -webkit-transition-timing-function: $mobileTransitionTimingFunction;
+        -o-transition-timing-function: $mobileTransitionTimingFunction;
+        transition-timing-function: $mobileTransitionTimingFunction;
+      }
+    }
+
+    /* Provides one last mixin to override or customize any aspect of the mobile view. */
+    @if mixin-exists(mobile) {
+      @include mobile;
+    }
+  }
+  .pushy-navbar.left.#{$rootClassName}.open .push-menu nav {
+    left: 0;
+  }
+  .pushy-navbar.right.#{$rootClassName} {
+    .push-menu {
+      nav {
+        left: calc(100vw + #{$mobileMenuWidth});
+        -webkit-transition-property: left;
+        -o-transition-property: left;
+        transition-property: left;
+        -webkit-transition-delay: $mobileTransitionDelay;
+        -o-transition-delay: $mobileTransitionDelay;
+        transition-delay: $mobileTransitionDelay;
+        -webkit-transition-duration: $mobileTransitionDuration;
+        -o-transition-duration: $mobileTransitionDuration;
+        transition-duration: $mobileTransitionDuration;
+        -webkit-transition-property: $mobileTransitionProperty;
+        -o-transition-property: $mobileTransitionProperty;
+        transition-property: $mobileTransitionProperty;
+        -webkit-transition-timing-function: $mobileTransitionTimingFunction;
+        -o-transition-timing-function: $mobileTransitionTimingFunction;
+        transition-timing-function: $mobileTransitionTimingFunction;
+      }
+    }
+  }
+  .pushy-navbar.right.#{$rootClassName}.open .push-menu nav {
+    left: calc(100vw - #{$mobileMenuWidth});
+  }
+  /* When positioned on the right side, we need to accommodate for the presence of a scrollbar in the calculation of the positioning */
+  .pushy-navbar.right.#{$rootClassName}.open.hasScrollbar .push-menu nav {
+    left: calc(100vw - #{$mobileMenuWidth} - 16px);
+  }
+}
+
+/* Define Desktop Menu Styles */
+
+@media (min-width: ($breakPoint+1+"px")) {
+  .pushy-navbar.#{$rootClassName} {
+    background-color: $desktopBackgroundColor;
+    border-bottom-color: $desktopBorderColor;
+    border-bottom-style: $desktopBorderStyle;
+    border-bottom-width: $desktopBorderWidth;
+    .branding {
+      display: grid;
+      grid-template-columns: auto auto;
+      .title {
+        color: $desktopTitleColor;
+        font-family: $desktopTitleFontFamily;
+        font-size: $desktopTitleFontSize;
+        font-weight: $desktopTitleFontWeight;
+        a {
+          color: $desktopTitleColor;
+          font-family: $desktopTitleFontFamily;
+          font-size: $desktopTitleFontSize;
+          font-weight: $desktopTitleFontWeight;
+        }
+      }
+      @if mixin-exists(desktopBranding) {
+        @include desktopBranding;
+      }
+    }
+    .features {
+      @if mixin-exists(desktopFeatures) {
+        @include desktopFeatures;
+      }
+    }
+    .pushy-navbar-toggle,
+    .close-container {
+      @include hide;
+    }
+
+    .pushy-main-grid {
+      display: -ms-grid;
+      display: grid;
+      grid-column-gap: 20px;
+      -ms-grid-columns: auto 20px 1fr;
+      grid-template-columns: auto 1fr;
+      -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .pushy-main-grid > *:nth-child(1) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
+
+    .pushy-main-grid > *:nth-child(2) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 3;
+    }
+    .push-menu {
+      display: flex;
+      nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .primary-links {
+          -webkit-box-flex: 1;
+          -ms-flex: auto;
+          flex: auto;
+
+          @if $menuPosition==left {
+            margin-left: 10px;
+          }
+
+          @if $menuPosition==right {
+            right: 10px;
+          }
+        }
+
+        ul {
+          display: inline-block;
+          padding: 0;
+          margin: 0;
+
+          // Reset second level UL height to auto.
+          ul {
+            height: auto;
+          }
+          li {
+            display: inline-block;
+            height: 100%;
+
+            &.has-children button {
+              padding-right: 1.5em;
+              span.child-indicator {
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 6px solid $primaryColor;
+                height: 10px;
+                margin-top: 12px;
+                margin-left: 5px;
+                position: absolute;
+                width: 0;
+              }
+              &:hover span.child-indicator {
+                border-top-color: $desktopLinkHoverColor;
+              }
+            }
+            a,
+            button {
+              border: 1px solid transparent;
+              border-radius: 8px;
+              color: $desktopLinkColor;
+              display: inline-block;
+              line-height: $desktopLinkLineHeight;
+              min-height: $desktopLinkLineHeight;
+              margin: $desktopLinkMargin;
+              padding: $desktopLinkPadding;
+              vertical-align: middle;
+              &.active {
+                background-color: $desktopLinkActiveBackgroundColor;
+                color: $desktopLinkActiveColor;
+                span.child-indicator {
+                  border-top-color: $desktopLinkActiveColor;
+                }
+              }
+
+              &:hover {
+                background-color: $desktopLinkHoverBackgroundColor;
+                color: $desktopLinkHoverColor;
+                span {
+                  border-top-color: $desktopLinkHoverColor;
+                }
+              }
+            }
+          }
+
+          ul {
+            @include hide;
+          }
+          /* Style submenu items */
+          li.expanded ul.submenu {
+            /* reset hide */
+            left: auto;
+            top: auto;
+            box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            border-radius: 10px;
+            display: table;
+            position: absolute;
+            z-index: 2;
+            li {
+              border: 1px solid #eee;
+              background: #fff;
+              display: block;
+              z-index: 2;
+              position: relative;
+              height: auto;
+              padding: 0;
+              margin: 0;
+            }
+            li {
+              border-top-width: 1px;
+              a,
+              button {
+                background-color: $desktopSubLinkBackgroundColor;
+                color: $desktopSubLinkColor;
+                height: 100%;
+                border-radius: 0;
+                margin: 0;
+                padding: 1em;
+                width: 100%;
+                &:hover {
+                  background-color: $desktopSubLinkHoverBackgroundColor;
+                  color: $desktopSubLinkHoverColor;
+                }
+                &.active {
+                  background-color: $desktopSubLinkActiveBackgroundColor;
+                  color: $desktopSubLinkActiveColor;
+                }
+              }
+            }
+
+            li:first-child,
+            li:first-child a {
+              border-top-left-radius: 8px;
+              border-top-right-radius: 8px;
+            }
+
+            li:last-child,
+            li:last-child a {
+              border-bottom-left-radius: 8px;
+              border-bottom-right-radius: 8px;
+            }
+            @if mixin-exists(desktopSubMenu) {
+              @include desktopSubMenu;
+            }
+          }
+        }
+        @if mixin-exists(desktopMenu) {
+          @include desktopMenu;
+        }
+      }
+    }
+
+    /* Provides one last mixin to override or customize any aspect of the Desktop view. */
+    @if mixin-exists(desktop) {
+      @include desktop;
+    }
+  }
+}

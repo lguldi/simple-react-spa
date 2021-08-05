@@ -1,0 +1,207 @@
+/**********************************************************************************************************
+* PushyNavBar Default theme
+********************************************************************************************************* */
+$breakPoint: 1024; // Set the breakpoint to transition from Desktop to Mobile views.
+$menuPosition: left; // Position links to the "left" or "right" in desktop mode.
+$rootClassName: "default"; // Useful when you have multiple menus on the same page with different styles.
+// The rootClassName should match the value of the "rootCssSelector" prop passed into the instance of the
+// PushyNavBar you want to style.
+$primaryColor: #244f75;
+$secondaryColor: darken($primaryColor, 10);
+$primaryInverseColor: #fff;
+$navbarHeight: 100px; // Navbar height in the desktop view.
+
+/**********************************************************************************************************
+* Navbar Desktop styles 
+******************************************************************************************************** */
+$baseBackgroundColor: $primaryColor;
+$desktopBackgroundColor: $primaryColor; // Background color of the navbar in the desktop view.
+$desktopBorderColor: #ccc; // Color of the bottom border that displays in the desktop view.
+$desktopBorderWidth: 0px; // Width of the bottom border that displays in the desktop view.
+$desktopBorderStyle: solid; // Border style of the bottom border that displays in the desktop view.
+$desktopFontColor: $primaryInverseColor; // Default font color for the navbar in the desktop view.
+$desktopFontFamily: arial, verdana, sans-serif; // Default font family for the navbar in the desktop view.
+$desktopFontWeight: 600; // Default font weight for the navbar in the desktop view.
+$desktopTitleColor: $primaryInverseColor; // Default font color for the title in the desktop view.
+$desktopTitleHoverColor: $secondaryColor; // Hover color for the title text link.
+$desktopTitleFontFamily: $desktopFontFamily; // Default font family for the title in the desktop view.
+$desktopTitleFontSize: 18pt;
+$desktopTitleFontWeight: $desktopFontWeight; // Default font weight for the title in the desktop view.
+$desktopLinkColor: $primaryInverseColor; // Link color for the navigation links in the desktop view.
+$desktopLinkActiveBackgroundColor: $secondaryColor; // Hover background color for the navigation links in the desktop view.
+$desktopLinkActiveColor: $primaryInverseColor;
+$desktopLinkFocusBorder: 1px solid #7abbf4; // Border setting for menu items when focused in desktop view.
+$desktopLinkHoverBackgroundColor: $secondaryColor; // Hover background color for the navigation links in the desktop view.
+$desktopLinkHoverColor: $primaryInverseColor; // Hover link color for the top level navigation links in the desktop view.
+$desktopLinkMargin: 0 0 0 0; // Sets the margin for the navigation links in the desktop view.
+$desktopLinkPadding: 10px 10px; // Sets the padding for the navigation links in the desktop view.
+$desktopSubLinkBackgroundColor: $primaryInverseColor;
+$desktopSubLinkColor: $primaryColor;
+$desktopSubLinkHoverBackgroundColor: darken($primaryColor, 5);
+$desktopSubLinkHoverColor: $primaryInverseColor;
+
+$desktopSubLinkActiveBackgroundColor: $primaryColor;
+$desktopSubLinkActiveColor: $primaryInverseColor;
+
+/**********************************************************************************************************
+* Mobile push menu styles 
+******************************************************************************************************** */
+
+$mobileBackgroundColor: $primaryColor; // Background color of the navbar in the mobile view.
+$mobileLinkHoverBackgroundColor: darken(
+  $mobileBackgroundColor,
+  10
+); // Hover background color of the navbar links in the mobile view.
+
+$mobileLinkColor: $primaryInverseColor; // Navbar link color in the mobile view.
+$mobileLinkActiveBackgroundColor: darken(
+  $mobileBackgroundColor,
+  5
+); // Hover background color for the navigation links in the desktop view.
+$mobileLinkActiveColor: $primaryInverseColor; // Text color of the active link
+$mobileLinkActiveHoverColor: $primaryInverseColor;
+$mobileLinkActiveHoverBackgroundColor: $mobileLinkHoverBackgroundColor;
+$mobileLinkMargin: 0;
+$mobileLinkPadding: 1em;
+$mobileTitleColor: #fff;
+$mobileSubLinkBackgroundColor: darken($mobileBackgroundColor, 15);
+$mobileSubLinkColor: $primaryInverseColor;
+$mobileSubLinkHoverColor: $primaryInverseColor;
+$mobileSubLinkHoverBackgroundColor: lighten($mobileSubLinkBackgroundColor, 20);
+
+$mobileBorderColor: darken(
+  $mobileBackgroundColor,
+  10
+); // Border color of navbar links used as a divider in the mobile view.
+$mobileMenuWidth: 350px; // Sets the mobile menu width in the mobile view.
+
+/********************************************************************************************************************************************
+* Mobile menu toggle button
+****************************************************************************************************************************************** */
+
+$toggleLineColor: $primaryInverseColor; // Default color of the hamburger menu lines.
+$toggleHoverColor: darken(
+  $primaryInverseColor,
+  5
+); // Color of the hamburger menu lines on hover.
+$toggleOpenBackgroundColor: $toggleLineColor; // Background color of the hamburger menu when the menu is open and the modal cover is behind it.
+$toggleOpenLineColor: $primaryColor; // Line color of the hamburger menu when the menu is open and the modal cover is behind it.
+$toggleOpenHoverLineColor: lighten(
+  $toggleOpenLineColor,
+  20
+); // Color of the hamburger menu lines on hover.
+$closeFocusBorderColor: #aaa; // Sets the color of the border on the hamburger menu when the button is focused
+
+/**********************************************************************************************************
+* Menu transition properties and modal cover styles 
+******************************************************************************************************** */
+
+$mobileTransitionDelay: 0s; // Sets a delay before the menu begins its transition
+$mobileTransitionDuration: 0.7s; // Sets the duration of time to open or close the push menu in the mobile view.
+$mobileTransitionProperty: all; // Applies the transition time to all CSS property changes.
+$mobileTransitionTimingFunction: ease; // Sets the acceleration curve of the menu opening and closing transition.
+$coverColor: #000; // Color of the veil overlay covering the remainder of the page from being clicked.
+$coverOpacity: 0.7; // Opacity of the veil overlay
+
+/**********************************************************************************************************
+* Mixin for styling the branding section and positioning the logo 
+******************************************************************************************************** */
+
+@mixin branding {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  padding-left: 1em;
+  img {
+    border-radius: 50%;
+    height: 80px;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 0.5em;
+  }
+}
+@mixin base {
+  button {
+    text-transform: none;
+  }
+}
+@mixin title {
+}
+
+@mixin toggle {
+  top: 10px;
+}
+
+@mixin desktop {
+  .primary-links {
+    margin-top: 30px;
+  }
+}
+@mixin desktopMenu {
+  align-items: unset;
+  margin-top: -4px;
+  ul li.has-children button span.child-indicator {
+    margin-top: 14px;
+    border-top-color: #fff;
+  }
+  a,
+  button {
+    border: 1px solid transparent;
+    margin-right: 0.1em;
+  }
+  a:focus,
+  button:focus {
+    border: $desktopLinkFocusBorder;
+  }
+}
+@mixin mobile {
+}
+@mixin mobileMenu {
+  button {
+    margin-bottom: 0;
+  }
+}
+@mixin mobileSubMenu {
+}
+
+@mixin mobileFeatures {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  .github {
+    margin: 0 auto;
+  }
+}
+
+@mixin desktopFeatures {
+  padding: 1em;
+}
+
+@mixin features {
+  a {
+    color: #fff;
+  }
+  input {
+    margin: 1em;
+  }
+
+  .features-content {
+    display: flex;
+    align-content: space-between;
+
+    .login-logout {
+      flex: 1;
+      margin: 1em;
+    }
+    .github {
+      margin-top: -40px;
+    }
+    @media (max-width: $breakPoint+"px") {
+      .github-icon {
+        margin-top: -40px;
+      }
+    }
+  }
+}
