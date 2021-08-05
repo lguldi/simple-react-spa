@@ -2,6 +2,8 @@
 
 Simple React SPA is a React starter app that attempts to provide a straight forward boilerplate to bootstrap new React applications without too much complexity. Out of the box you get a responsive navigation, optional authentication examples, React context implementation for state management, public and private pages with wrapper components to support access public/private and role based access, and some useful utility functions.
 
+![](src/documentation/images/desktop-view.png)
+
 # Installation
 
 Clone or download the project, then open a terminal and run `yarn install`
