@@ -155,7 +155,7 @@ The PushyNavBar component if fairly flexible and allows for a bit of customizati
 
 ## Additional Customization and Styling
 
-For further customization, check out the Theming Guide under `/src/documentation/theming-guide.md` for CSS styling, supporting for additional menu features, support for different styling of multiple menus, etc.
+For further customization, check out the Theming Guide under [/src/documentation/theming-guide.m](src/documentation/theming-guide.md) for CSS styling, supporting for additional menu features, support for different styling of multiple menus, etc.
 
 # Using Context
 
