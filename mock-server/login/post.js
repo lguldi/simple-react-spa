@@ -1,13 +1,5 @@
 /**
 The value in for the "jwt" property in the response is JSON Web Token (JWT) will decode to this JSON object:
-
-{
-  sub: 'testerbob',
-  email: 'testerbob@trinity-health.org',
-  name: 'Bob Tester',
-  iat: 1598632729,
-  exp: 1598715274
-}
 {
     "iss": "Example JWT Issuer",
     "iat": 1627246460,
